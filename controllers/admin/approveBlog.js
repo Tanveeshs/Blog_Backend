@@ -9,7 +9,7 @@ module.exports.approveBlog = (req,res,next)=> {
         if(res.locals.admin){
             let id = req.body.id;
             let status = req.body.status;
-            Blog.findOneAndUpdate({_id:id},{$set:{status:status}}, (err, t) => {
+            Blog.findOneAndUpdate({_id:id},{$set:{status:status}}, (err) => {
                 if(err){
                     res.json({success:0,message:"ERROR"});
                     return next();

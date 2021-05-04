@@ -1,9 +1,7 @@
-const moment = require('moment');
+
 const crypto = require('crypto');
 const User = require('../../model/user');
-const ForgotPass = require('../../model/forgotPass');
 const mail = require('../../utils/mailer');
-const sanitize = require("mongo-sanitize");
 const comFun = require('../../commonFunctions')
 const bcrypt = require('bcrypt-node');
 
@@ -34,7 +32,7 @@ module.exports.updPassword = (req, res,next)=> {
                         return next();
                     } else {
                         let content = '<!DOCTYPE html>\n' +
-                            '<html>\n' +
+                            '<html lang="en">\n' +
                             '\n' +
                             '<body class="fr-no-selection">\n' +
                             '    <p>Dear User,</p>\n' +

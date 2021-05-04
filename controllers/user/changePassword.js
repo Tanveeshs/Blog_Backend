@@ -1,9 +1,4 @@
-const moment = require('moment');
-const crypto = require('crypto');
 const User = require('../../model/user');
-const ForgotPass = require('../../model/forgotPass');
-const mail = require('../../utils/mailer');
-const sanitize = require("mongo-sanitize");
 const comFun = require('../../commonFunctions')
 const bcrypt = require('bcrypt-node');
 

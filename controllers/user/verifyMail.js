@@ -5,7 +5,7 @@ const mailer = require('../../utils/mailer');
 
 module.exports.verifyMail = function (req, res, next) {
 	const secret = process.env.verify_mail_secret;
-	if (req.body.email !== '' && comFun.NotNullUndef(req.body.email)) {
+	if (comFun.strVal(req.body.email)) {
 		User.findOne(
 			{
 				'local.email': String.prototype.toLowerCase.apply(req.body.email),
@@ -21,7 +21,7 @@ module.exports.verifyMail = function (req, res, next) {
 					return next();
 				} else {
 					const emailAddress = String.prototype.toLowerCase.apply(req.body.email);
-					var date = Date.now();
+					let date = Date.now();
 					date += 24 * 60 * 60 * 1000;
 					const payload = {
 						id: result._id,
@@ -29,7 +29,7 @@ module.exports.verifyMail = function (req, res, next) {
 						endDate: date,
 					};
 					let token = jwt.sign(payload, secret);
-					let url = 'http://test.untangle.space:3000/verify/' + token;
+					let url = 'http://localhost:3000/verify/' + token;
 					let content = `<p>Hey User,</p>
                         <p><br></p>
                         <p>You are just one step away from the Untangle.</p>

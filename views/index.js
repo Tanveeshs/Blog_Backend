@@ -1,6 +1,4 @@
 const comFun = require('../commonFunctions')
-const jwt    = require('jsonwebtoken');
-const moment = require('moment');
 
 module.exports = (app,passport)=>{
     const verifyMail            = require('../controllers/user/verifyMail');

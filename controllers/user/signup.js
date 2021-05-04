@@ -4,7 +4,7 @@ const crypto = require('crypto');
 const mailer = require('../../utils/mailer');
 
 module.exports.signup = (req,res,next)=>{
-    if(comFun.NotNullUndef(req.user)){
+    if(comFun.notNullUndef(req.user)){
         let cipher = crypto.createCipher('aes256',"Secret");
         let encrypted = cipher.update(String(req.user._id), 'utf8', 'hex') + cipher.final('hex');
         const secret = process.env.verify_mail_secret;
@@ -33,7 +33,7 @@ module.exports.signup = (req,res,next)=>{
                 res.json({success:-10,message:"Mail not sent"})
                 return next();
             })
-            .on('done',function (s) {
+            .on('done',function () {
                 console.log(url);
                 res.json({ success: 1, message: 'Signup Success', token: encrypted });
                 return next()

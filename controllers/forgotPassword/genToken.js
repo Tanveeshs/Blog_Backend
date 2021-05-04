@@ -25,7 +25,7 @@ module.exports.genToken = (req,res,next)=>{
                 let emailAddress = req.body.email.toLowerCase();
                 let otp = Math.floor(100000 + Math.random() * 900000)
                 let content = `<!DOCTYPE html>
-                          <html>
+                          <html lang="en">
                           <body class="fr-no-selection">
                               <b>Your OTP for login is:${otp}</b>
                           </body>
@@ -49,7 +49,7 @@ module.exports.genToken = (req,res,next)=>{
                                 res.json({success:0,message:"Mail not sent"})
                                 return next();
                             })
-                            .on('done',function (s) {
+                            .on('done',function () {
                                 res.json({success:1,message:"Password Reset Mail Sent Successfully"});
                                 return next()
                             });

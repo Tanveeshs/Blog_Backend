@@ -16,7 +16,7 @@ module.exports.login = (req,res,next)=>{
             console.log('Error',err);
             res.json({success:0,message:"Error"})
             return next();
-        }else if(!comFun.NotNullUndef(data)){
+        }else if(!comFun.notNullUndef(data)){
             console.log('Error',err);
             res.json({success:0,message:"Error"})
             return next();

@@ -5,7 +5,7 @@ const mongodb = require("mongodb");
 const ObjectID = mongodb.ObjectID;
 
 module.exports.likeBlog = (req,res,next)=>{
-    if(!comFun.StrVal(req.body.blog) || !comFun.numVal(req.body.like)){
+    if(!comFun.strVal(req.body.blog) || !comFun.numVal(req.body.like)){
         res.json({success: 0,message:"Error!"});
         console.log("ISS MEIN")
         return next();
@@ -18,7 +18,7 @@ module.exports.likeBlog = (req,res,next)=>{
                 console.log(err)
                 res.json({success:0,message:"Error!"});
                 return next();
-            }else if(!comFun.NotNullUndef(doc)){
+            }else if(!comFun.notNullUndef(doc)){
                 res.json({success:-10,message:"Already liked or disliked"});
                 return next();
             }else {

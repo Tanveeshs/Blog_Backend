@@ -18,7 +18,7 @@ module.exports.verifyToken = (req, res, next)=> {
             if(err){
                 res.json({success:0,message:"Sorry there is some error!"})
                 return next()
-            }else if(comFun.NotNullUndef(doc)) {
+            }else if(comFun.notNullUndef(doc)) {
                 try {
                     let cipher = crypto.createCipher('aes256',"Secret");
                     let encrypted = cipher.update(String(doc.userId), 'utf8', 'hex') + cipher.final('hex');

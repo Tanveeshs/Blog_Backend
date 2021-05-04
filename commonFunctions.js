@@ -1,5 +1,6 @@
 const moment = require('moment')
 const jwt = require('jsonwebtoken')
+
 let self = module.exports = {
     strVal: function (v) {
         let type = typeof v;
@@ -16,6 +17,19 @@ let self = module.exports = {
             return v.length >= 1;
         }
         return false;
+    },
+    notNullUndef: function (v) {
+        let type = typeof v;
+        if(type === 'undefined') {
+            return false;
+        }
+        if(v === null) {
+            return false;
+        }
+        if(v === undefined) {
+            return false;
+        }
+        return true;
     },
     getCurrTime: function(){
         return moment().utcOffset(330).format("YYYY-MM-DDTHH:mm:ss.SSS");
@@ -39,7 +53,7 @@ let self = module.exports = {
         return false;
     },
     jwtAuth:function (req,res,next){
-        if(self.NotNullUndef(req.headers['x-auth-token'])){
+        if(self.notNullUndef(req.headers['x-auth-token'])){
             let token = req.headers['x-auth-token'];
             console.log(token);
             jwt.verify(token,"Secret",function (err,a){

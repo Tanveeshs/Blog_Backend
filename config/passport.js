@@ -24,7 +24,7 @@ module.exports = function (passport) {
 					let email1 = String.prototype.toLowerCase.apply(email)
 					let firstName = req.body.fName;
 					let lastName = req.body.lName;
-					if(comFun.StrVal(email1)&& comFun.StrVal(password)&& comFun.StrVal(firstName) && comFun.StrVal(lastName))
+					if(comFun.strVal(email1)&& comFun.strVal(password)&& comFun.strVal(firstName) && comFun.strVal(lastName))
 					{
 						User.findOne({'local.email':email1},
 						function (err, user) {
@@ -32,7 +32,7 @@ module.exports = function (passport) {
 							if (user) {
 								return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
 							} else {
-								var newUser = new User();
+								let newUser = new User();
 								newUser.local.email = email1;
 								newUser.local.isVerified = false;
 								newUser.firstName = firstName;
