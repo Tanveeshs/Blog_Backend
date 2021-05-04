@@ -11,6 +11,6 @@ const forgotPassSchema = new mongoose.Schema({
     }
 });
 forgotPassSchema.index({email:1,otp:1,expiry:1})
-const ForgotPass = mongoose.model('forgot_pass', forgotPassSchema,'forgot_pass');
+const ForgotPass = mongoose.model('forgotPass', forgotPassSchema,'forgotPass');
 
 module.exports = ForgotPass;

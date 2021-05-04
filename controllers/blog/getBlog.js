@@ -1,5 +1,5 @@
-const Blog = require('../model/blog');
-const comFun = require('../commonFunctions');
+const Blog = require('../../model/blog');
+const comFun = require('../../commonFunctions');
 const mongodb = require("mongodb");
 const ObjectID = mongodb.ObjectID;
 

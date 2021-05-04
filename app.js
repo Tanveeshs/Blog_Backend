@@ -16,8 +16,6 @@ const bodyParser    = require('body-parser');
 const cors          = require('cors');
 const cookieSession = require('cookie-session');
 const compression   = require('compression');
-const fs            = require('fs');
-const https         = require('https');
 
 const app           = express();
 const PORT = process.env.PORT || 8080;
@@ -92,13 +90,10 @@ app.use(passport.session());
 
 
 /*ROUTES*/
-require('./routes/RegisterAndLogin')(app, passport);
-require('./routes/index')(app);
+require('./views/index')(app,passport);
 /*ROUTES*/
-
 
 
 app.listen(PORT,function (){
 	console.log("Server listening on port",process.env.PORT);
 })
-// https.createServer(options,app).listen(5000)

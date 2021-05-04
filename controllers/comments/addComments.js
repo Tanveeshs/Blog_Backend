@@ -1,5 +1,5 @@
-const comFun = require('../commonFunctions')
-const Comment = require('../model/comments');
+const comFun = require('../../commonFunctions')
+const Comment = require('../../model/comments');
 
 module.exports.addComment = (req,res,next)=>{
     if (!comFun.StrVal(req.body.comment)|| !comFun.StrVal(req.body.blog)) {
@@ -11,12 +11,12 @@ module.exports.addComment = (req,res,next)=>{
         const userId = res.locals.userId;
         const blog = req.body.blog;
 
-        const comment1 = new Comment({
+        const commentObj = new Comment({
             comment:comment,
             user:userId,
             blog:blog
         })
-        comment1.save(function (err) {
+        commentObj.save(function (err) {
             if (err) {
                 console.error(err)
                 res.json({success: 0, message: "ERROR"})

@@ -1,7 +1,7 @@
-const Blog = require('../model/blog');
-const comFun = require('../commonFunctions');
+const Blog = require('../../model/blog');
+const comFun = require('../../commonFunctions');
 
-module.exports.getBlog = (req,res,next)=> {
+module.exports.approveBlog = (req,res,next)=> {
     if (!comFun.StrVal(req.body.id)|| !comFun.numVal(req.body.status)) {
         res.json({success: 0, message: "Error"})
         return next();

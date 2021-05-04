@@ -1,15 +1,14 @@
-const Blog = require('../model/blog')
-const comFun = require('../commonFunctions');
+const Blog = require('../../model/blog')
+const comFun = require('../../commonFunctions');
 
-module.exports.getBlog = (req,res,next)=> {
-    if (!comFun.numVal(req.body.page)|| !comFun.StrVal(req.body.search)) {
+module.exports.getLikedBlog = (req,res,next)=> {
+    if (!comFun.numVal(req.body.page)) {
         res.json({success: 0, message: "Error"})
         return next();
     } else {
         let page = req.body.page;
-        let search = req.body.search;
         let skip = page * 10;
-        Blog.find({$text:{$search:search}},{score:{$meta:"textScore"}}, (err, t) => {
+        Blog.find({status:1}, (err, t) => {
             if(err){
                 res.json({success:0,message:"ERROR"});
                 return next();
@@ -20,6 +19,6 @@ module.exports.getBlog = (req,res,next)=> {
                     res.json({success:-1,message:"No blogs Found"});
                 }
             }
-        }).sort({score:{$meta:"textScore"}}).skip(skip).limit(10)
+        }).sort({like:-1}).skip(skip).limit(10)
     }
 }

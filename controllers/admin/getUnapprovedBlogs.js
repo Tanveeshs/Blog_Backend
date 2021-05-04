@@ -1,7 +1,7 @@
-const Blog = require('../model/blog');
-const comFun = require('../commonFunctions');
+const Blog = require('../../model/blog');
+const comFun = require('../../commonFunctions');
 
-module.exports.getBlog = (req,res,next)=> {
+module.exports.getUnapprovedBlog = (req,res,next)=> {
     if (!comFun.numVal(req.body.page)) {
         res.json({success: 0, message: "Error"})
         return next();

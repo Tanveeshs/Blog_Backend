@@ -1,5 +1,5 @@
-const Blog = require('../model/blog')
-const comFun = require('../commonFunctions');
+const Blog = require('../../model/blog')
+const comFun = require('../../commonFunctions');
 
 module.exports.getBlog = (req,res,next)=> {
     if (!comFun.numVal(req.body.page)) {
@@ -7,9 +7,8 @@ module.exports.getBlog = (req,res,next)=> {
         return next();
     } else {
         let page = req.body.page;
-        let userId = res.locals.userId;
         let skip = page * 10;
-        Blog.find({by:userId,status:{$nin:[0]}}, (err, t) => {
+        Blog.find({status:1}, (err, t) => {
             if(err){
                 res.json({success:0,message:"ERROR"});
                 return next();

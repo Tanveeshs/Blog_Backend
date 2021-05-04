@@ -1,10 +1,10 @@
-const comFun = require('../commonFunctions');
-const Blog = require('../model/blog');
-const User = require('../model/user');
+const comFun = require('../../commonFunctions');
+const Blog = require('../../model/blog');
+const User = require('../../model/user');
 const mongodb = require("mongodb");
 const ObjectID = mongodb.ObjectID;
 
-module.exports.like_or_dislike = (req,res,next)=>{
+module.exports.likeBlog = (req,res,next)=>{
     if(!comFun.StrVal(req.body.blog) || !comFun.numVal(req.body.like)){
         res.json({success: 0,message:"Error!"});
         console.log("ISS MEIN")

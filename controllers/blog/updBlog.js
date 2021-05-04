@@ -1,5 +1,5 @@
-const comFun = require('../commonFunctions')
-const blog = require('../model/blog');
+const comFun = require('../../commonFunctions')
+const blog = require('../../model/blog');
 
 module.exports.updBlog = (req,res,next)=>{
     if (!comFun.StrVal(req.body.id)) {

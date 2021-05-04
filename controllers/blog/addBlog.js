@@ -1,5 +1,5 @@
-const comFun = require('../commonFunctions')
-const blog = require('../model/blog');
+const comFun = require('../../commonFunctions')
+const blog = require('../../model/blog');
 
 module.exports.addBlog = (req,res,next)=>{
     if (!comFun.StrVal(req.body.thumbnail)|| !comFun.StrVal(req.body.image) || !comFun.StrVal(req.body.title)
@@ -14,14 +14,14 @@ module.exports.addBlog = (req,res,next)=>{
         const title = req.body.title;
         const userId = res.locals.userId;
 
-        const blog1 = new blog({
+        const blogObj = new blog({
             title: title,
             content:content,
             image:image,
             thumbnail:thumbnail,
             by: userId
         })
-        blog1.save(function (err) {
+        blogObj.save(function (err) {
             if (err) {
                 console.error(err)
                 res.json({success: 0, message: "ERROR"})

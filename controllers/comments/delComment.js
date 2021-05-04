@@ -1,5 +1,5 @@
-const comFun = require('../commonFunctions')
-const Comments = require('../model/comments');
+const comFun = require('../../commonFunctions')
+const Comments = require('../../model/comments');
 
 module.exports.delComments = (req,res,next)=>{
     if (!comFun.StrVal(req.body.id)) {
