@@ -4,7 +4,6 @@ const moment = require('moment');
 
 module.exports = (app,passport)=>{
     const verifyMail            = require('../controllers/user/verifyMail');
-    const forgotPassword        = require('../controllers/forgotPassword');
     const addBlog               = require('../controllers/blog/addBlog');
     const delBlog               = require('../controllers/blog/delBlog');
     const updBlog               = require('../controllers/blog/updBlog');

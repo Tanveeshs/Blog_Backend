@@ -4,7 +4,7 @@ const mongodb = require("mongodb");
 const ObjectID = mongodb.ObjectID;
 
 module.exports.getBlog = (req,res,next) => {
-    if(!comFun.StrVal(req.body.blog)){
+    if(!comFun.strVal(req.body.blog)){
         console.log("Error in  fields");
         res.json({success: 0, message: "Error"})
         return next();

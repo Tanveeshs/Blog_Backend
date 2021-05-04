@@ -1,13 +1,7 @@
 const moment = require('moment')
 const jwt = require('jsonwebtoken')
-const {google} = require('googleapis');
-
-const { Readable } = require('stream');
-const async = require('async');
-
-
 let self = module.exports = {
-    StrVal: function (v) {
+    strVal: function (v) {
         let type = typeof v;
         if(type === 'undefined') {
             return false;
@@ -22,38 +16,6 @@ let self = module.exports = {
             return v.length >= 1;
         }
         return false;
-    },
-    StrMobVal: function (v) {
-        let type = typeof v;
-        if(type === 'undefined') {
-            return false;
-        }
-        /*if(type=== 'boolean') {
-         return false;
-         }*/
-        if(v === null) {
-            return false;
-        }
-        if(v === undefined) {
-            return false;
-        }
-        if(type === 'string') {
-            return v.length === 10;
-        }
-        return false;
-    },
-    NotNullUndef: function (v) {
-        let type = typeof v;
-        if(type === 'undefined') {
-            return false;
-        }
-        if(v === null) {
-            return false;
-        }
-        if(v === undefined) {
-            return false;
-        }
-        return true;
     },
     getCurrTime: function(){
         return moment().utcOffset(330).format("YYYY-MM-DDTHH:mm:ss.SSS");

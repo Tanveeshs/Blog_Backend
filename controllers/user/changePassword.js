@@ -8,11 +8,11 @@ const comFun = require('../../commonFunctions')
 const bcrypt = require('bcrypt-node');
 
 module.exports.changePassword = function(req,res,next){
-    if(!comFun.StrVal(req.body.oldPass)){
+    if(!comFun.strVal(req.body.oldPass)){
         console.error("No oldPass")
         res.json({success:0,message:"Error"})
         return next()
-    }else if(!comFun.StrVal(req.body.newPass)){
+    }else if(!comFun.strVal(req.body.newPass)){
         console.error("No newPass")
         res.json({success:0,message:"Error"})
         return next()

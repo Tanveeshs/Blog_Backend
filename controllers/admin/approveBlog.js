@@ -2,7 +2,7 @@ const Blog = require('../../model/blog');
 const comFun = require('../../commonFunctions');
 
 module.exports.approveBlog = (req,res,next)=> {
-    if (!comFun.StrVal(req.body.id)|| !comFun.numVal(req.body.status)) {
+    if (!comFun.strVal(req.body.id)|| !comFun.numVal(req.body.status)) {
         res.json({success: 0, message: "Error"})
         return next();
     } else {

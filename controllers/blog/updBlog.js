@@ -2,7 +2,7 @@ const comFun = require('../../commonFunctions')
 const blog = require('../../model/blog');
 
 module.exports.updBlog = (req,res,next)=>{
-    if (!comFun.StrVal(req.body.id)) {
+    if (!comFun.strVal(req.body.id)) {
         console.log("Error in  fields");
         res.json({success: 0, message: "Error"})
         return next();
@@ -13,19 +13,19 @@ module.exports.updBlog = (req,res,next)=>{
         updObj.$set = {};
         updObj.$set.status =2;
         let isUpd = false;
-        if(comFun.StrVal(req.body.content)){
+        if(comFun.strVal(req.body.content)){
             updObj.$set.content = req.body.content;
             isUpd = true;
         }
-        if(comFun.StrVal(req.body.title)){
+        if(comFun.strVal(req.body.title)){
             updObj.$set.title = req.body.title;
             isUpd = true;
         }
-        if(comFun.StrVal(req.body.image)){
+        if(comFun.strVal(req.body.image)){
             updObj.$set.image = req.body.image;
             isUpd = true;
         }
-        if(comFun.StrVal(req.body.thumbnail)){
+        if(comFun.strVal(req.body.thumbnail)){
             updObj.$set.thumbnail = req.body.thumbnail;
             isUpd = true;
         }

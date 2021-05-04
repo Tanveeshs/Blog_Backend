@@ -8,12 +8,12 @@ const comFun = require('../../commonFunctions')
 const bcrypt = require('bcrypt-node');
 
 module.exports.updPassword = (req, res,next)=> {
-    if(!comFun.StrVal(req.body.token)){
+    if(!comFun.strVal(req.body.token)){
         console.error("No token")
         res.json({success:0,message:"Error"})
         return next()
     }
-    else if(!comFun.StrVal(req.body.password)){
+    else if(!comFun.strVal(req.body.password)){
         console.error("No password")
         res.json({success:0,message:"Error"})
         return next()

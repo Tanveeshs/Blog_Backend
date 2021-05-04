@@ -2,7 +2,7 @@ const comFun = require('../../commonFunctions')
 const Comment = require('../../model/comments');
 
 module.exports.addComment = (req,res,next)=>{
-    if (!comFun.StrVal(req.body.comment)|| !comFun.StrVal(req.body.blog)) {
+    if (!comFun.strVal(req.body.comment)|| !comFun.strVal(req.body.blog)) {
         console.log("Error in  fields");
         res.json({success: 0, message: "Error"})
         return next();

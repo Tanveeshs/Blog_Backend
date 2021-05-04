@@ -2,8 +2,8 @@ const comFun = require('../../commonFunctions')
 const blog = require('../../model/blog');
 
 module.exports.addBlog = (req,res,next)=>{
-    if (!comFun.StrVal(req.body.thumbnail)|| !comFun.StrVal(req.body.image) || !comFun.StrVal(req.body.title)
-        || !comFun.StrVal(req.body.content)) {
+    if (!comFun.strVal(req.body.thumbnail)|| !comFun.strVal(req.body.image) || !comFun.strVal(req.body.title)
+        || !comFun.strVal(req.body.content)) {
         console.log("Error in  fields");
         res.json({success: 0, message: "Error"})
         return next();

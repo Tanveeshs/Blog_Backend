@@ -2,7 +2,7 @@ const comFun = require('../../commonFunctions')
 const Blog = require('../../model/blog');
 
 module.exports.delBlog = (req,res,next)=>{
-    if (!comFun.StrVal(req.body.id)) {
+    if (!comFun.strVal(req.body.id)) {
         console.log("Error in  fields");
         res.json({success: 0, message: "Error"})
         return next();

@@ -3,10 +3,10 @@ const ForgotPass = require('../../model/forgotPass');
 const comFun = require('../../commonFunctions')
 
 module.exports.verifyToken = (req, res, next)=> {
-    if(!comFun.StrVal(req.body.otp)){
+    if(!comFun.strVal(req.body.otp)){
         res.json({success:0,message:"Sorry there is some error!"})
         return next()
-    }else if(!comFun.StrVal(req.body.email)){
+    }else if(!comFun.strVal(req.body.email)){
         res.json({success:0,message:"Sorry there is some error!"})
         return next()
     }

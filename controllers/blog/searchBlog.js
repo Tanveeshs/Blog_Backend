@@ -2,7 +2,7 @@ const Blog = require('../../model/blog')
 const comFun = require('../../commonFunctions');
 
 module.exports.searchBlog = (req,res,next)=> {
-    if (!comFun.numVal(req.body.page)|| !comFun.StrVal(req.body.search)) {
+    if (!comFun.numVal(req.body.page)|| !comFun.strVal(req.body.search)) {
         res.json({success: 0, message: "Error"})
         return next();
     } else {

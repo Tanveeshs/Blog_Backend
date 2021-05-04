@@ -6,7 +6,7 @@ const sanitize = require("mongo-sanitize");
 const comFun = require('../../commonFunctions')
 
 module.exports.genToken = (req,res,next)=>{
-    if (!comFun.StrVal(req.body.email)) {
+    if (!comFun.strVal(req.body.email)) {
         res.json({success:0,message:"Email address not found"});
         return next();
     } else {
